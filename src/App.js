@@ -12,19 +12,24 @@ import Description from "../src/components/Description";
 function App() {
 
   const [img, setImg] = useState({});
-  const [error, serError] = useState("");
+  
+  
   useEffect(() => {
     axios
       .get(`https://api.nasa.gov/planetary/apod`)
-      .then(res => setImg(img))
-      .catch(err => serError(error))
+      .then(res =>  {
+        const image = res.data;
+        setImg(image);
+      })
   })
+
+  console.log(img)
 
 
   return (
     <div className="App">
       <h1>NASA Astronomy Photo Of The Day</h1>
-      <Image title={img.title} image={img.image} />
+      <Image title={img.title} image={img.url} desc={img.explanation} />
       {console.log("img props in App.js: ", img)}
       <Description desc={img.explanation} />
       
