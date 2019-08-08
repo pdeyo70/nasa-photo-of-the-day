@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+
+
 
 const Description = () => {
+    const [desc, setDesc] = useState();
+
     return(
-        <h3>Coming A Little Less Soon, But Still Soon!</h3>
+        <p>{setDesc(desc)}</p>
     )
 }
 
