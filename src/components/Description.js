@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 
 
-const Description = () => {
-    const [desc, setDesc] = useState();
-
+const Description = (props) => {
     return(
-        <p>{setDesc(desc)}</p>
+        <p>{props.data.explanation}</p>
     )
 }
 
